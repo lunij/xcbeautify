@@ -409,5 +409,11 @@ enum Pattern: String {
     /// $1 = package name
     /// $2 = package url
     /// $3 = package version
-    case packageGraphResolvedItem = #"\s*([^\s:]+):\s([^ ]+)\s@\s(\d+\.\d+\.\d+)"#;
+    case packageGraphResolvedItem = #"\s*([^\s:]+):\s([^ ]+)\s@\s(\d+\.\d+\.\d+)"#
+
+    /// Regular expression captures groups:
+    /// $1 = class name
+    /// $2 = first library/framework
+    /// $3 = second library/framework
+    case implementedInBoth = #"objc\[\d+\]: Class (\w+) is implemented in both (\S*) \(.*\) and (\S*) \(.*\). One of the two will be used. Which one is undefined."#
 }

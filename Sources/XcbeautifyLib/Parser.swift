@@ -85,7 +85,8 @@ public class Parser {
         innerParser(Matcher.undefinedSymbolLocationMatcher, outputType: .warning),
         innerParser(Matcher.packageGraphResolvingStart, outputType: .task),
         innerParser(Matcher.packageGraphResolvingEnded, outputType: .task),
-        innerParser(Matcher.packageGraphResolvedItem, outputType: .task)
+        innerParser(Matcher.packageGraphResolvedItem, outputType: .task),
+        innerParser(Matcher.implementedInBothMatcher, outputType: .warning)
     ]
     
     // MARK: - Init

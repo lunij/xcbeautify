@@ -462,4 +462,9 @@ final class XcbeautifyLibTests: XCTestCase {
         let package = noColoredFormatted("  StrasbourgParkAPI: https://github.com/yageek/StrasbourgParkAPI.git @ 3.0.2")
         XCTAssertEqual(package, "StrasbourgParkAPI - https://github.com/yageek/StrasbourgParkAPI.git @ 3.0.2")
     }
+
+    func testImplementedInBoth() {
+        let formatted = noColoredFormatted("objc[16094]: Class AppleTypeCRetimerRestoreInfoHelper is implemented in both /usr/lib/libauthinstall.dylib (0x1fb395eb0) and /Library/Apple/System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/MobileDevice (0x10a0f44f8). One of the two will be used. Which one is undefined.")
+        XCTAssertEqual(formatted, "AppleTypeCRetimerRestoreInfoHelper is implemented in both /usr/lib/libauthinstall.dylib and /Library/Apple/System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/MobileDevice")
+    }
 }

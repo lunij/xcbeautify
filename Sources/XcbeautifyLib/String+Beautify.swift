@@ -149,10 +149,21 @@ extension String {
             return formatPackageEnd(pattern: pattern)
         case .packageGraphResolvedItem:
             return formatPackgeItem(pattern: pattern)
+        case .implementedInBoth:
+            return formatImplementedInBoth(pattern: pattern)
         }
     }
 
     // MARK: - Private
+
+    private func formatImplementedInBoth(pattern: Pattern) -> String {
+        let groups = capturedGroups(with: pattern)
+        if _colored {
+            return "\(groups[0].s.Bold.f.Yellow) is implemented in both \(groups[1].s.Italic) and \(groups[2].s.Italic)"
+        } else {
+            return "\(groups[0]) is implemented in both \(groups[1]) and \(groups[2])"
+        }
+    }
 
     private func formatTargetCommand(command: String, pattern: Pattern) -> String {
         let groups = capturedGroups(with: pattern)
